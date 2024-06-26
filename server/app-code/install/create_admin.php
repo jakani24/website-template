@@ -9,7 +9,6 @@
 </head>
 <body>
 <?php
-include "../api/php/log/add_server_entry.php"; //to log things
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">

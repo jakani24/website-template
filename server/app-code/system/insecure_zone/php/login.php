@@ -319,7 +319,6 @@ async function checkRegistration() {
 												//send the user to 2fa auth page
 												echo '<script>window.location.href = "/system/insecure_zone/php/2fa.php";</script>';
 											}else{
-												log_action("LOGIN::SUCCESS","User ".$_SESSION["username"]." logged in with password.",$_SESSION["id"]);
 												if($_SESSION["send_login_message"]=="1"){
 													$ip = $_SERVER['REMOTE_ADDR'];
 													$username=$row["username"];
@@ -329,7 +328,6 @@ async function checkRegistration() {
 											}
 											exit();
 										} else {
-											log_action("LOGIN::FAILURE","User ".$username." entered wrong password.",1);
 											echo '<div class="alert alert-danger" role="alert">
 													Incorrect username or password.
 												  </div>';
@@ -341,7 +339,6 @@ async function checkRegistration() {
 										  </div>';
 									}
 								} else {
-									log_action("LOGIN::FAILURE","User ".$username." entered unknown username.",1);
 									echo '<div class="alert alert-danger" role="alert">
 											Incorrect username or password.
 										  </div>';

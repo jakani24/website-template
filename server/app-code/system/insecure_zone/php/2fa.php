@@ -7,8 +7,6 @@ if(!isset($_SESSION["2fa_auth"])){ //so only someone who has allready confirmed 
 	header("LOCATION:/system/insecure_zone/php/login.php");
 	exit();
 }
-include "../../../api/php/notifications/sendmessage.php"; //to send user notification on login
-include "../../../api/php/log/add_server_entry.php"; //to log things
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +58,6 @@ include "../../../api/php/log/add_server_entry.php"; //to log things
 								if($pin==$_SESSION["pin"])	
 								{
 									$_SESSION["login"]=true;
-									log_action("LOGIN::2FA::SUCCESS","User ".$_SESSION["username"]." logged in with second factor.",$_SESSION["id"]);
 									if($_SESSION["send_login_message"]=="1"){
 										$ip = $_SERVER['REMOTE_ADDR'];
 										$username=$_SESSION["username"];
